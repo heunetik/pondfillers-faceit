@@ -1,13 +1,25 @@
 <html>
     <head>
-        <style type="text/css">
-        body {width:450; height:490;background-color:#FFFFFF;margin:0 auto;padding:10px}
-        </style>
+        <link rel="stylesheet" type="text/css" href="pondfiller_st.css">
         <script src="scripts.js"></script>
+        </script>
     </head>
     <body>
-        <center><button id="pondfillers">pondfillers</button><button id="pondTS">Join</button></center>
-        <iframe allowtransparency="true" src="http://i.imgur.com/bHGNbdM.jpg" style="height:100%;width:100%;" scrolling="auto" frameborder="0">Your browser will not show iFrames
-        </iframe>
+        <div class='wrapper'>
+            <center>
+                <button class="button" id="pondfillers">pondfillers</button>
+                <button class="button" id="pondTS">Teamspeak</button>
+
+                <b>
+                    <!-- <p class="f_it" id="faceit_name"></p> -->
+                    <p class="f_it" id="faceit"></p>
+                </b>
+
+                <form id='nameForm'>
+                    <input id='nameField' class="f_input" type='text' maxlength='25'></input>
+                </form>
+                <button id="query">Check ELO</button>
+            </center>
+        </div>
     </body>
 </html>
