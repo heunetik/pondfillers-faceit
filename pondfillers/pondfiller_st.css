@@ -63,3 +63,11 @@ body
     margin-bottom:3px;
     margin-top:3px;
 }
+::-webkit-input-placeholder
+{
+   text-align: center;
+}
+input
+{
+    text-align: center;
+}
