@@ -16,6 +16,11 @@ body
     width: 70%;
     margin: auto;
     color: #CCCCCC;
+    /*
+    border:solid;
+    border-color:#f50;
+    box-shadow: 3px 3px 5px #f50;
+    */
 }
 .form-sub
 {
@@ -33,9 +38,14 @@ body
 {
     margin-top:4px;
     margin-bottom:2px;
+    font-weight:700;
+    color:white;
+    background-color:#f50;
+    text-shadow: 1px 1px #000000
 }
 .f_it
 {
     margin-top:12px;
     margin-bottom:12px;
+    color:#f50;
 }
