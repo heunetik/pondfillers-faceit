@@ -1,12 +1,16 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('pondfillers').addEventListener('click', kd_stats);
-    document.getElementById('pondTS').addEventListener('click', teamspeak);
+    document.getElementById('pondfillers').addEventListener('click', home);
+    document.getElementById('kdr').addEventListener('click', kd_stats);
     document.getElementById('query').addEventListener('click', getUserName);
 });
 
-var un_id;
-var flaglink = "https://cdn.faceit.com/frontend/335/assets/images/flags/";
-var dotpng = ".png";
+function hideShow(fName)
+{
+	if(document.getElementById("kdr").style.display == "none" && fName != 0)
+		document.getElementById("kdr").style.display="block";
+	if(document.getElementById("kdr").style.display == "block" && fName == 0)
+		document.getElementById("kdr").style.display="none";
+}
 
 function home()
 {
@@ -24,7 +28,7 @@ function getUserName() {
     faceit(nameField);
 }
 
-function faceit(uid_check){
+function faceit(fName){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onreadystatechange = function () {
 	    if (this.readyState == 4 && this.status == 200) {
@@ -33,22 +37,24 @@ function faceit(uid_check){
 	        var cflag;
 	        cflag = myObj.payload.country;
 	        cflag = cflag.toUpperCase();
-	        document.getElementById("flag").src = flaglink + cflag + dotpng;
-
+	        document.getElementById("flag").src = "https://cdn.faceit.com/frontend/335/assets/images/flags/" + cflag + ".png";
 	        // document.getElementById("faceit_name").innerHTML ="";
-	        // document.getElementById("faceit_name").innerHTML = uid_check;
+	        // document.getElementById("faceit_name").innerHTML = fName;
 	        document.getElementById("faceit").innerHTML ="";
-	        document.getElementById("faceit").innerHTML += "ELO: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
+	        document.getElementById("faceit").innerHTML += "ELOL: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
 	    }
 	    else
 	    {
 	    	document.getElementById("faceit").innerHTML ="";
 	    	document.getElementById("faceit").innerHTML = "User not found";
+	    	document.getElementById("flag").src = "";
 	    }
 	};
 	var url = "https://api.faceit.com/core/v1/nicknames/";
-	xmlhttp.open("GET", url + uid_check, true);
+	xmlhttp.open("GET", url + fName, true);
 	xmlhttp.send();
+	hideShow(fName);
+	fName = "";
 }
 
 function kd_stats(){
@@ -68,6 +74,7 @@ function kd_stats(){
 	        k_d = k_d.toFixed(2);
 	        var textz = document.getElementById("faceit").innerHTML;
 	        document.getElementById("faceit").innerHTML = textz + "<br> K/D " + k_d;
+	        k_d = 0;
 	        un_id=0;
 	    }
 	};
