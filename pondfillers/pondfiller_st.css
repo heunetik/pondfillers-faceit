@@ -43,10 +43,23 @@ body
     background-color:#f50;
     text-shadow: 1px 1px #000000
 }
+.button_l
+{
+    margin:auto;
+    font-weight:700;
+    color:white;
+    background-color:#f50;
+    text-shadow: 1px 1px #000000
+}
 .f_it
 {
-    margin-top:12px;
-    margin-bottom:12px;
+    margin:auto;
+    margin-bottom:6px;
     color:#f50;
     font-size:18px;
+}
+.image
+{
+    margin-bottom:3px;
+    margin-top:3px;
 }
