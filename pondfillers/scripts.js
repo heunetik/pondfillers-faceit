@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 var un_id;
+var flaglink = "https://cdn.faceit.com/frontend/335/assets/images/flags/";
+var dotpng = ".png";
 
 function home()
 {
@@ -28,6 +30,10 @@ function faceit(uid_check){
 	    if (this.readyState == 4 && this.status == 200) {
 	        myObj = JSON.parse(this.responseText);
 	        un_id = myObj.payload.guid;
+	        var cflag;
+	        cflag = myObj.payload.country;
+	        cflag = cflag.toUpperCase();
+	        document.getElementById("flag").src = flaglink + cflag + dotpng;
 
 	        // document.getElementById("faceit_name").innerHTML ="";
 	        // document.getElementById("faceit_name").innerHTML = uid_check;
@@ -62,6 +68,7 @@ function kd_stats(){
 	        k_d = k_d.toFixed(2);
 	        var textz = document.getElementById("faceit").innerHTML;
 	        document.getElementById("faceit").innerHTML = textz + "<br> K/D " + k_d;
+	        un_id=0;
 	    }
 	};
 	var url = "https://api.faceit.com/stats/v1/stats/time/users/";
