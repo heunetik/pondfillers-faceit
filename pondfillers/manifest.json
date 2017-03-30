@@ -1,10 +1,10 @@
 {
   "manifest_version": 2,
 
-  "name": "pondfillers TeamSpeak 3 Plugin",
-  "short_name": "pondfillersTS",
-  "description": "Displays current status of the server & the people online!",
-  "version": "2.2.0",
+  "name": "pondfillers' FaceIT tool",
+  "short_name": "pondfillers FaceIT",
+  "description": "FaceIT ELO / average K/D checker.",
+  "version": "3.0.1",
 
   "icons": 
   {
@@ -16,7 +16,7 @@
   {
     "default_icon": "icon.png",
     "default_popup": "popup.htm",
-    "default_title": "pondfillers ELO checker"
+    "default_title": "pondfillers' ELO checker"
   },
   "background":
   {
