@@ -1,2 +1,2 @@
-# pondfillers-teamspeak
-pondfillers TeamSpeak 3 Plugin
+# pondfillers-faceit
+pondfillers faceit Plugin
