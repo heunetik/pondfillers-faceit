@@ -30,6 +30,7 @@ function getUserName() {
 
 function faceit(fName){
 	var xmlhttp = new XMLHttpRequest();
+	console.log(xmlhttp);
 	xmlhttp.onreadystatechange = function () {
 	    if (this.readyState == 4 && this.status == 200) {
 	        myObj = JSON.parse(this.responseText);
@@ -59,7 +60,7 @@ function faceit(fName){
 
 function kd_stats(){
 	var xmlhttp = new XMLHttpRequest();
-	xmlhttp.onreadystatechange = function () {
+	xmlhttp.onload = function () {
 	    if (this.readyState == 4 && this.status == 200) {
 	        jObj = JSON.parse(this.responseText);
 	        var kills = 0;
@@ -67,15 +68,15 @@ function kd_stats(){
 	        var k_d = 0;
 	        for(var i=0; i<3; i++)
 	        {
-	        	kills = kills + parseFloat(jObj[i].i6);
-	        	deaths = deaths + parseFloat(jObj[i].i8);
+	        	match = jObj[i];
+	        	kills = kills + parseFloat(match.i6);
+	        	deaths = deaths + parseFloat(match.i8);
 	        }
 	        k_d = kills / deaths;
 	        k_d = k_d.toFixed(2);
 	        var textz = document.getElementById("faceit").innerHTML;
-	        document.getElementById("faceit").innerHTML = textz + "<br> K/D " + k_d;
+	        document.getElementById("kd").innerHTML = "K/D " + k_d;
 	        k_d = 0;
-	        un_id=0;
 	    }
 	};
 	var url = "https://api.faceit.com/stats/v1/stats/time/users/";
