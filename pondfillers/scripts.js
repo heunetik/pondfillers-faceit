@@ -29,8 +29,9 @@ function getUserName() {
 }
 
 function faceit(fName){
+	document.getElementById("kd").innerHTML = "";
+	document.getElementById("faceit").innerHTML = "";
 	var xmlhttp = new XMLHttpRequest();
-	console.log(xmlhttp);
 	xmlhttp.onreadystatechange = function () {
 	    if (this.readyState == 4 && this.status == 200) {
 	        myObj = JSON.parse(this.responseText);
@@ -41,14 +42,14 @@ function faceit(fName){
 	        document.getElementById("flag").src = "https://cdn.faceit.com/frontend/335/assets/images/flags/" + cflag + ".png";
 	        // document.getElementById("faceit_name").innerHTML ="";
 	        // document.getElementById("faceit_name").innerHTML = fName;
-	        document.getElementById("faceit").innerHTML ="";
-	        document.getElementById("faceit").innerHTML += "ELOL: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
+	        document.getElementById("faceit").innerHTML = "";
+	        document.getElementById("faceit").innerHTML += "ELO: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
 	    }
 	    else
 	    {
-	    	document.getElementById("faceit").innerHTML ="";
-	    	document.getElementById("faceit").innerHTML = "User not found";
 	    	document.getElementById("flag").src = "";
+	    	document.getElementById("faceit").innerHTML = "";
+	    	document.getElementById("faceit").innerHTML = "User not found";
 	    }
 	};
 	var url = "https://api.faceit.com/core/v1/nicknames/";
