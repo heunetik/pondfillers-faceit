@@ -1,15 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById('pondfillers').addEventListener('click', home);
     document.getElementById('kdr').addEventListener('click', kd_stats);
+    document.getElementById('kdr_l').addEventListener('click', l_kd_stats); // NEW AS OF 03/04/2017
     document.getElementById('query').addEventListener('click', getUserName);
 });
 
 function hideShow(fName)
 {
 	if(document.getElementById("kdr").style.display == "none" && fName != 0)
+	{
 		document.getElementById("kdr").style.display="block";
+		document.getElementById("kdr_l").style.display="block"; // NEW AS OF 03/04/2017
+	}
 	if(document.getElementById("kdr").style.display == "block" && fName == 0)
+	{
 		document.getElementById("kdr").style.display="none";
+		document.getElementById("kdr_l").style.display="none"; // NEW AS OF 03/04/2017
+	}	
 }
 
 function home()
@@ -57,6 +64,7 @@ function faceit(fName){
 	xmlhttp.send();
 	hideShow(fName);
 	fName = "";
+	// http://steamcommunity.com/profiles/
 }
 
 function kd_stats(){
@@ -82,6 +90,23 @@ function kd_stats(){
 	};
 	var url = "https://api.faceit.com/stats/v1/stats/time/users/";
 	var url_p2 = "/games/csgo?page=0&size=3";
+	xmlhttp.open("GET", url + un_id + url_p2, true);
+	xmlhttp.send();
+	// 06b6394e-795d-4e8e-bfd3-79f9581607b1 = heuID
+	// 48f9db99-b075-4f86-9286-250692c14325 = RickyID
+}
+
+// NEW AS OF 03/04/2017
+function l_kd_stats(){
+	var xmlhttp = new XMLHttpRequest();
+	xmlhttp.onload = function () {
+	    if (this.readyState == 4 && this.status == 200) {
+	        jObj = JSON.parse(this.responseText);
+	        document.getElementById("kd").innerHTML = "K/D " + jObj.lifetime.k5 + " @ " + jObj.lifetime.m1;
+	    }
+	};
+	var url = "https://api.faceit.com/stats/v1/stats/users/";
+	var url_p2 = "/games/csgo";
 	xmlhttp.open("GET", url + un_id + url_p2, true);
 	xmlhttp.send();
 	// 06b6394e-795d-4e8e-bfd3-79f9581607b1 = heuID
