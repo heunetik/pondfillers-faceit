@@ -58,6 +58,10 @@ body
     color:#f50;
     font-size:18px;
 }
+.f_small
+{
+    font-size:12px;
+}
 .image
 {
     margin-bottom:3px;
