@@ -8,6 +8,7 @@ body
     padding:12px;
     overflow: hidden;
 }
+/*
 .wrapper
 {
     background-color: #424242;
@@ -16,12 +17,11 @@ body
     width: 70%;
     margin: auto;
     color: #CCCCCC;
-    /*
     border:solid;
     border-color:#f50;
     box-shadow: 3px 3px 5px #f50;
-    */
 }
+*/
 .form-sub
 {
     padding-top: 12px;
@@ -60,7 +60,7 @@ body
 }
 .f_small
 {
-    font-size:12px;
+    font-size:14px;
 }
 .image
 {
