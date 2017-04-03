@@ -26,6 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 });
 
+function getUserName() {
+	//preventDefault();
+    var nameField = document.getElementById('nameField').value;
+    //document.getElementById("nameField").value ="";
+    faceit(nameField);
+}
+/*
 function hideShow(fName)
 {
 	if(document.getElementById("kdr").style.display == "none" && fName != 0)
@@ -36,6 +43,17 @@ function hideShow(fName)
 	{
 		document.getElementById("kdr").style.display="none";
 	}	
+}
+*/
+function none_block(fName)
+{
+	//inviz -> viz;
+	document.getElementById("kdr").style.display="block";
+}
+function block_none(fName)
+{
+	//viz -> inviz;
+	document.getElementById("kdr").style.display="none";
 }
 
 function home()
@@ -53,13 +71,6 @@ function steamcommunity_profile(steamid)
 	var link = "http://steamcommunity.com/profiles/" + steamid;
     //chrome.tabs.create({ url: link });
     document.getElementById("steamlink").href = link;
-}
-
-function getUserName() {
-	//preventDefault();
-    var nameField = document.getElementById('nameField').value;
-    //document.getElementById("nameField").value ="";
-    faceit(nameField);
 }
 
 function faceit(fName){
@@ -80,18 +91,19 @@ function faceit(fName){
 	        // document.getElementById("faceit_name").innerHTML = fName;
 	        document.getElementById("faceit").innerHTML = "";
 	        document.getElementById("faceit").innerHTML += "ELO: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
+	        none_block(fName);
 	    }
 	    else
 	    {
 	    	document.getElementById("flag").src = "";
 	    	document.getElementById("faceit").innerHTML = "";
 	    	document.getElementById("faceit").innerHTML = "User not found";
+	    	block_none(fName);
 	    }
 	};
 	var url = "https://api.faceit.com/core/v1/nicknames/";
 	xmlhttp.open("GET", url + fName, true);
 	xmlhttp.send();
-	hideShow(fName);
 	fName = "";
 	// http://steamcommunity.com/profiles/
 }
