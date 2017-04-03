@@ -22,7 +22,7 @@
   {
     "scripts": 
     [
-      "scripts.js"
+      "pondf_faceit.js"
     ]
   }
 }
