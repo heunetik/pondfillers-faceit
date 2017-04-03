@@ -80,7 +80,6 @@ function faceit(fName){
 	        // document.getElementById("faceit_name").innerHTML = fName;
 	        document.getElementById("faceit").innerHTML = "";
 	        document.getElementById("faceit").innerHTML += "ELO: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
-		hideShow(fName);
 	    }
 	    else
 	    {
@@ -93,6 +92,7 @@ function faceit(fName){
 	xmlhttp.open("GET", url + fName, true);
 	xmlhttp.send();
 	fName = "";
+	hideShow(fName);
 	// http://steamcommunity.com/profiles/
 }
 
