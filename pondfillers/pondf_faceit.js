@@ -1,8 +1,29 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('pondfillers').addEventListener('click', home);
-    document.getElementById('kdr').addEventListener('click', kd_stats);
-    document.getElementById('kdr_l').addEventListener('click', l_kd_stats); // NEW AS OF 03/04/2017
-    document.getElementById('query').addEventListener('click', getUserName);
+	document.getElementById('pondfillers').addEventListener('click', home);
+	document.getElementById('kdr').addEventListener('click', kd_stats);
+	document.getElementById('kdr_l').addEventListener('click', l_kd_stats); 
+	document.getElementById('query').addEventListener('click', getUserName);
+	/*
+	document.getElementById('query').addEventListener("keyup", function(event)
+		{
+			event.preventDefault();
+			if (event.keyCode == 13)
+			{
+	  	  		//document.getElementById('query').click();
+	  	  		alert("123 test");
+			}
+	});
+	*/
+	// latest addition
+	document.querySelector("input[class=f_input]").addEventListener('keypress', function (e)
+	{
+	    var key = e.which || e.keyCode;
+	    if (key === 13)
+	    {
+	    	e.preventDefault();
+	    	getUserName();
+		}
+	});
 });
 
 function hideShow(fName)
@@ -10,12 +31,12 @@ function hideShow(fName)
 	if(document.getElementById("kdr").style.display == "none" && fName != 0)
 	{
 		document.getElementById("kdr").style.display="block";
-		document.getElementById("kdr_l").style.display="block"; // NEW AS OF 03/04/2017
+		document.getElementById("kdr_l").style.display="block";
 	}
 	if(document.getElementById("kdr").style.display == "block" && fName == 0)
 	{
 		document.getElementById("kdr").style.display="none";
-		document.getElementById("kdr_l").style.display="none"; // NEW AS OF 03/04/2017
+		document.getElementById("kdr_l").style.display="none";
 	}	
 }
 
@@ -30,6 +51,7 @@ function teamspeak()
 }
 
 function getUserName() {
+	//preventDefault();
     var nameField = document.getElementById('nameField').value;
     //document.getElementById("nameField").value ="";
     faceit(nameField);
@@ -96,7 +118,6 @@ function kd_stats(){
 	// 48f9db99-b075-4f86-9286-250692c14325 = RickyID
 }
 
-// NEW AS OF 03/04/2017
 function l_kd_stats(){
 	var xmlhttp = new XMLHttpRequest();
 	xmlhttp.onload = function () {
