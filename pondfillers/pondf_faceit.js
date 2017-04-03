@@ -91,8 +91,8 @@ function faceit(fName){
 	var url = "https://api.faceit.com/core/v1/nicknames/";
 	xmlhttp.open("GET", url + fName, true);
 	xmlhttp.send();
-	fName = "";
 	hideShow(fName);
+	fName = "";
 	// http://steamcommunity.com/profiles/
 }
 
