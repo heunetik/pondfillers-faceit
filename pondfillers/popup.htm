@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="pondfiller_st.css">
+        <script src="pondf_faceit.js"></script>
+        </script>
+    </head>
+    <body>
+        <div class='wrapper'>
+            <center>
+                <div>
+                    <button class="button" id="pondfillers">pondfillers</button>
+                    <button class="button" id="steamid">Steam</button>
+                </div>
+                <div id="kdr" style="display: none;">
+
+                    <button class="button" id="kdr_3">K/D</button>
+
+                    <a id="steamlink" href="" target="_blank">
+                        <img class="steam" src="steam_v2.png">
+                    </a>
+                    
+                    <button class="button" id="kdr_l">Total K/D</button>
+                </div>
+                <b>
+                    <!-- <p class="f_it" id="faceit_name"></p> -->
+                    <img class="image" id="flag" src="">
+                    <p class="f_it" id="faceit"></p>
+                    <p class="f_it f_small" id="kd"></p>
+                </b>
+
+                <form id='nameForm'>
+                    <input autocomplete="off" id='nameField' class="f_input" type='text' maxlength='25' placeholder=": FaceIT ID :"></input>
+                </form>
+
+                <button type="submit" class="button_l" id="query">Check ELO</button>
+            </center>
+        </div>
+    </body>
+</html>
