@@ -1,7 +1,16 @@
+/* play-regular - latin */
+@font-face {
+  font-family: 'Play';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Play'), local('Play-Regular'),
+       url('fonts/play-v7-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/play-v7-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 body 
 {
     margin: 0;
-    font-family: sans-serif;
+    font-family: Play,sans-serif;
     background-color: #222222;
     width:144;
     height:224;
@@ -29,6 +38,7 @@ body
 }
 .f_input
 {
+    font-family: Play, sans-serif;
     width:100%;
     margin:auto;
     box-sizing:border-box;
@@ -36,15 +46,18 @@ body
 }
 .button
 {
+    font-family: Play, sans-serif;
     margin-top:4px;
     margin-bottom:2px;
     font-weight:700;
     color:white;
     background-color:#f50;
     text-shadow: 1px 1px #000000
+
 }
 .button_l
 {
+    font-family: Play, sans-serif;
     margin:auto;
     font-weight:700;
     color:white;
@@ -53,6 +66,7 @@ body
 }
 .f_it
 {
+    font-family: Play, sans-serif;
     margin:auto;
     margin-bottom:6px;
     color:#f50;
