@@ -1,7 +1,8 @@
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('pondfillers').addEventListener('click', home);
 	document.getElementById('kdr_3').addEventListener('click', kd_stats);
-	document.getElementById('kdr_l').addEventListener('click', l_kd_stats); 
+	document.getElementById('kdr_l').addEventListener('click', l_kd_stats);
+	// document.getElementById('steamid').addEventListener('click', getUserName);
 	document.getElementById('query').addEventListener('click', getUserName);
 	/*
 	document.getElementById('query').addEventListener("keyup", function(event)
@@ -15,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	});
 	*/
 	// latest addition
-	document.querySelector("input[class=f_input]").addEventListener('keypress', function (e)
+	document.querySelector("input[class=textbox]").addEventListener('keypress', function (e)
 	{
 	    var key = e.which || e.keyCode;
 	    if (key === 13)
