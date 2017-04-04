@@ -31,12 +31,9 @@ body
     box-shadow: 3px 3px 5px #f50;
 }
 */
-.form-sub
-{
-    padding-top: 12px;
-    padding-bottom: 12px;
-}
-.f_input
+
+/* TEXTBOX SETTINGS */
+.textbox
 {
     font-family: Play, sans-serif;
     width:100%;
@@ -44,6 +41,16 @@ body
     box-sizing:border-box;
     -moz-box-sizing:border-box;
 }
+::-webkit-input-placeholder
+{
+   text-align: center;
+}
+input
+{
+    text-align: center;
+}
+
+/* BUTTON SETTINGS */
 .button
 {
     font-family: Play, sans-serif;
@@ -55,16 +62,9 @@ body
     text-shadow: 1px 1px #000000
 
 }
-.button_l
-{
-    font-family: Play, sans-serif;
-    margin:auto;
-    font-weight:700;
-    color:white;
-    background-color:#f50;
-    text-shadow: 1px 1px #000000;
-}
-.f_it
+
+/* PARAGRAPH CSS */
+.faceit
 {
     font-family: Play, sans-serif;
     margin:auto;
@@ -73,27 +73,22 @@ body
     font-size:18px;
     text-shadow: 2px 2px #000000;
 }
-.f_small
+.sizeonefour
 {
     font-size:14px;
 }
+
+.hdd
+{
+    display: none;
+}
+
+/* IMAGE CSS */
 .image
 {
     margin-bottom:3px;
     margin-top:3px;
     filter: drop-shadow(2px 2px 0 black);
-}
-::-webkit-input-placeholder
-{
-   text-align: center;
-}
-input
-{
-    text-align: center;
-}
-.hdd
-{
-    display: none;
 }
 .steam
 {
