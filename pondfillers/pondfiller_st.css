@@ -71,6 +71,7 @@ body
     margin-bottom:6px;
     color:#f50;
     font-size:18px;
+    text-shadow: 2px 2px #000000;
 }
 .f_small
 {
@@ -80,6 +81,7 @@ body
 {
     margin-bottom:3px;
     margin-top:3px;
+    filter: drop-shadow(2px 2px 0 black);
 }
 ::-webkit-input-placeholder
 {
@@ -95,9 +97,10 @@ input
 }
 .steam
 {
+    text-decoration: none;
     width: 22px;
     height: 22px;
-    margin-bottom:4px;
+    margin-bottom:6px;
     vertical-align:middle;
-    filter: drop-shadow(-1px -1px 0 black);
+    filter: drop-shadow(1px 1px 0 black);
 }
