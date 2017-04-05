@@ -1,21 +1,25 @@
+/*
+	pondfillers' Faceit stats Chrome Extension
+    Copyright (C) 2017 heunetik
+
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+    http://www.gnu.org/licenses
+*/
+
 document.addEventListener('DOMContentLoaded', function () {
 	document.getElementById('pondfillers').addEventListener('click', home);
 	document.getElementById('kdr_3').addEventListener('click', kd_stats);
 	document.getElementById('kdr_l').addEventListener('click', l_kd_stats);
 	// document.getElementById('steamid').addEventListener('click', getUserName);
 	document.getElementById('query').addEventListener('click', getUserName);
-	/*
-	document.getElementById('query').addEventListener("keyup", function(event)
-		{
-			event.preventDefault();
-			if (event.keyCode == 13)
-			{
-	  	  		//document.getElementById('query').click();
-	  	  		alert("123 test");
-			}
-	});
-	*/
-	// latest addition
 	document.querySelector("input[class=textbox]").addEventListener('keypress', function (e)
 	{
 	    var key = e.which || e.keyCode;
@@ -28,29 +32,16 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 function getUserName() {
-	//preventDefault();
     var nameField = document.getElementById('nameField').value;
-    //document.getElementById("nameField").value ="";
     faceit(nameField);
 }
-/*
-function hideShow(fName)
-{
-	if(document.getElementById("kdr").style.display == "none" && fName != 0)
-	{
-		document.getElementById("kdr").style.display="block";
-	}
-	if(document.getElementById("kdr").style.display == "block" && fName == 0)
-	{
-		document.getElementById("kdr").style.display="none";
-	}	
-}
-*/
+
 function none_block(fName)
 {
 	//inviz -> viz;
 	document.getElementById("kdr").style.display="block";
 }
+
 function block_none(fName)
 {
 	//viz -> inviz;
@@ -70,8 +61,7 @@ function teamspeak()
 function steamcommunity_profile(steamid)
 {
 	var link = "http://steamcommunity.com/profiles/" + steamid;
-    //chrome.tabs.create({ url: link });
-    document.getElementById("steamlink").href = link;
+	document.getElementById("steamlink").href = link;
 }
 
 function faceit(fName){
@@ -88,8 +78,6 @@ function faceit(fName){
 	        cflag = myObj.payload.country;
 	        cflag = cflag.toUpperCase();
 	        document.getElementById("flag").src = "https://cdn.faceit.com/frontend/335/assets/images/flags/" + cflag + ".png";
-	        // document.getElementById("faceit_name").innerHTML ="";
-	        // document.getElementById("faceit_name").innerHTML = fName;
 	        document.getElementById("faceit").innerHTML = "";
 	        document.getElementById("faceit").innerHTML += "ELO: " + myObj.payload.games.csgo.faceit_elo + "<br> Level: " + myObj.payload.games.csgo.skill_level;
 	        none_block(fName);
@@ -106,7 +94,6 @@ function faceit(fName){
 	xmlhttp.open("GET", url + fName, true);
 	xmlhttp.send();
 	fName = "";
-	// http://steamcommunity.com/profiles/
 }
 
 function kd_stats(){
@@ -135,7 +122,6 @@ function kd_stats(){
 	xmlhttp.open("GET", url + un_id + url_p2, true);
 	xmlhttp.send();
 	// 06b6394e-795d-4e8e-bfd3-79f9581607b1 = heuID
-	// 48f9db99-b075-4f86-9286-250692c14325 = RickyID
 }
 
 function l_kd_stats(){
@@ -150,6 +136,4 @@ function l_kd_stats(){
 	var url_p2 = "/games/csgo";
 	xmlhttp.open("GET", url + un_id + url_p2, true);
 	xmlhttp.send();
-	// 06b6394e-795d-4e8e-bfd3-79f9581607b1 = heuID
-	// 48f9db99-b075-4f86-9286-250692c14325 = RickyID
 }
