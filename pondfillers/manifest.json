@@ -1,11 +1,11 @@
 {
   "manifest_version": 2,
 
-  "name": "pondfillers' FaceIT tool",
-  "short_name": "pondfillers FaceIT",
-  "description": "FaceIT ELO / average K/D checker.",
-  "version": "3.5.0",
-
+  "name": "pondfillers' Faceit tool",
+  "short_name": "pondfillers Faceit",
+  "description": "Faceit stats checker",
+  "version": "3.5.1",
+  "homepage_url": "https://git.io/vSuUG",
   "icons": 
   {
     "128": "icon_128.png",
@@ -16,7 +16,7 @@
   {
     "default_icon": "icon.png",
     "default_popup": "popup.htm",
-    "default_title": "pondfillers' ELO checker"
+    "default_title": "pondfillers' stats checker"
   },
   "background":
   {
