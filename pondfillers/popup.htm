@@ -1,41 +1,31 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="pondfiller_st.css">
-        <script src="pondf_faceit.js"></script>
-        </script>
+        <link rel="stylesheet" type="text/css" href="css/pondfiller_st.css">
+        <script src="js/faceit.js"></script>
+        <script src="js/jquery-3.2.1.min.js"></script>
     </head>
     <body>
         <div class='wrapper'>
             <center>
                 <div>
                     <button class="button" id="pondfillers">pondfillers</button>
-                    <!--
-                    Button under development
-                    <button class="button" id="steamid">Steam</button>
-                    -->
                 </div>
-                <div id="kdr" style="display: none;">
-
-                    <button class="button" id="kdr_3">K/D</button>
-
-                    <a id="steamlink" class="steam" href="" target="_blank">
-                        <img class="steam" src="steam_v2.png">
-                    </a>
-                    
-                    <button class="button" id="kdr_l">Total K/D</button>
-                </div>
-                <b>
-                    <!-- <p class="f_it" id="faceit_name"></p> -->
-                    <img class="image" id="flag" src="">
-                    <p class="faceit" id="faceit"></p>
-                    <p class="faceit sizeonefour" id="kd"></p>
-                </b>
-
-                <form id='nameForm'>
+                <hr>
+                <div id="progressBar"><div></div></div>
+                <hr>
+                <form id='nameForm' class="button">
                     <input autocomplete="off" id='nameField' class="textbox" type='text' maxlength='25' placeholder="FACEIT ID"></input>
                 </form>
-
+                <b id="stats">
+                    <img class="image" id="flag" src="">
+                    <a id="steamlink" class="steam" href="" target="_blank" style="display:none">
+                        <img id="steam">
+                    </a>
+                    <p class="faceit" id="faceit" title=""></p>
+                </b>
+                <hr>
                 <button type="submit" class="button" id="query">CHECK ELO</button>
+
             </center>
         </div>
     </body>
