@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', function () {
 	
 	checkLocalData();
 	document.getElementById('query').addEventListener('click', getUserName);
-	
 	$("#query").on("click", getUserName(), false);
 	document.querySelector("input[class=textbox]").addEventListener('keypress', function (e) {
 	    var key = e.which || e.keyCode;
@@ -189,8 +188,18 @@ function lastThreeStats(un_id,faceit)
 
 function lifetimeStats(un_id,faceit)
 {
-	$.getJSON('https://api.faceit.com/stats/v1/stats/users/'+ un_id +'/games/csgo', function(jObj)
-	{
-	    faceit.append("<br>K/D: " + jObj.lifetime.k5 + " @ " + jObj.lifetime.m1);
-	});
+    $.getJSON('https://api.faceit.com/stats/v1/stats/users/'+ un_id +'/games/csgo', function(jObj)
+    {
+        var totalKD = 0;
+        var re = /de\_/i;
+        Object.entries(jObj.segments[0].segments).forEach(
+            ([key, value]) => {
+                if(key.match(re)) {
+                    totalKD += parseFloat(value.k5);
+                }
+            }
+        );
+        totalKD /= 9;
+        faceit.append("<br>K/D: " + totalKD.toFixed(2) + " @ " + jObj.lifetime.m1);
+    });
 }
