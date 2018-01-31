@@ -191,15 +191,17 @@ function lifetimeStats(un_id,faceit)
     $.getJSON('https://api.faceit.com/stats/v1/stats/users/'+ un_id +'/games/csgo', function(jObj)
     {
         var totalKD = 0;
+        var mapCount = 0;
         var re = /de\_/i;
         Object.entries(jObj.segments[0].segments).forEach(
             ([key, value]) => {
                 if(key.match(re)) {
+                	mapCount++;
                     totalKD += parseFloat(value.k5);
                 }
             }
         );
-        totalKD /= 9;
+        totalKD = totalKD/mapCount;
         faceit.append("<br>K/D: " + totalKD.toFixed(2) + " @ " + jObj.lifetime.m1);
     });
 }
