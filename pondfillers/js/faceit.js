@@ -31,6 +31,27 @@ document.addEventListener('DOMContentLoaded', function () {
 		}
 	});
 
+    var news = '<p class="sizeonefour">The new checkbox serves as the toggle for the inclusion of aim_maps in the K/D calculation.</p><p class="sizeonefour">TOGGLED = all maps<br><br>UNTOGGLED = "de_" maps only</p>';
+    $("#updates").append(news);
+    $("#pondfillers").click(function () {
+        if($("#mainContent").is(":visible")) {
+            $("#mainContent").hide();
+            $("#news").show();
+        } else {
+            $("#mainContent").show();
+            $("#news").hide();
+        }
+    });
+
+    $("#aimKD").click(function () {
+        if($('#aimKD').is(':checked')) {
+            localStorage.aimkd = true;
+        } else {
+            localStorage.aimkd = false;
+        }
+        getUserName();
+    });
+
 });
 
 function calculate(currentElo) {
@@ -76,6 +97,10 @@ function checkLocalData()
 	if (localStorage.mysetting == null)
 		localStorage.mysetting = "0000";
 
+    if(localStorage.aimkd == null) {
+        localStorage.aimkd = false;
+    }
+
 	chrome.browserAction.setBadgeText({
 		text : localStorage.mysetting.toString()
 	});
@@ -104,8 +129,9 @@ function faceit(fName)
 	$('#flag').attr("src", '' );
 	$.getJSON('https://api.faceit.com/core/v1/nicknames/'+fName, function(json)
 	{
-		un_id = json.payload.guid;
+        un_id = json.payload.guid;
 		var cflag = json.payload.country;
+        var isTrue = (localStorage.aimkd == "true");
 		cflag = cflag.toUpperCase();
 		elo = json.payload.games.csgo.faceit_elo;
 		skillLevel = json.payload.games.csgo.skill_level;
@@ -113,6 +139,9 @@ function faceit(fName)
 		$('#flag').attr("src", 'https://cdn.faceit.com/frontend/335/assets/images/flags/' + cflag + '.png' );
 		$('#steam').attr("src", 'icons/steam_v2.png' );
 		$("#faceit").attr('title', eloToLevel(elo) + ' elo needed for the next level!');
+
+        $('#aimKD').prop('checked', isTrue);
+        $("#aimKD").attr('title', 'Check this box to enable aim_map K/D ratio');
 
 		steamcommunity_profile(json.payload.steam_id_64);
 		
@@ -190,18 +219,22 @@ function lifetimeStats(un_id,faceit)
 {
     $.getJSON('https://api.faceit.com/stats/v1/stats/users/'+ un_id +'/games/csgo', function(jObj)
     {
-        var totalKD = 0;
-        var mapCount = 0;
-        var re = /de\_/i;
-        Object.entries(jObj.segments[0].segments).forEach(
-            ([key, value]) => {
-                if(key.match(re)) {
-                	mapCount++;
-                    totalKD += parseFloat(value.k5);
+        if(localStorage.aimkd == "true") {
+            faceit.append("<br>K/D: " + jObj.lifetime.k5 + " @ " + jObj.lifetime.m1);
+        } else {
+            var totalKD = 0;
+            var mapCount = 0;
+            var re = /de\_/i;
+            Object.entries(jObj.segments[0].segments).forEach(
+                ([key, value]) => {
+                    if(key.match(re)) {
+                        mapCount++;
+                        totalKD += parseFloat(value.k5);
+                    }
                 }
-            }
-        );
-        totalKD = totalKD/mapCount;
-        faceit.append("<br>K/D: " + totalKD.toFixed(2) + " @ " + jObj.lifetime.m1);
+            );
+            totalKD = totalKD/mapCount;
+            faceit.append("<br>K/D: " + totalKD.toFixed(2) + " @ " + jObj.lifetime.m1);
+        }
     });
 }

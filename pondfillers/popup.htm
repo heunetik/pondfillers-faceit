@@ -11,21 +11,26 @@
                     <button class="button" id="pondfillers">pondfillers</button>
                 </div>
                 <hr>
-                <div id="progressBar"><div></div></div>
-                <hr>
-                <form id='nameForm' class="button">
-                    <input autocomplete="off" id='nameField' class="textbox" type='text' maxlength='25' placeholder="FACEIT ID"></input>
-                </form>
-                <b id="stats">
-                    <img class="image" id="flag" src="">
-                    <a id="steamlink" class="steam" href="" target="_blank" style="display:none">
-                        <img id="steam">
-                    </a>
-                    <p class="faceit" id="faceit" title=""></p>
-                </b>
-                <hr>
-                <button type="submit" class="button" id="query">CHECK ELO</button>
-
+                <div class="faceit" id="news">
+                    <span id="updates">UPDATES:</span>
+                </div>
+                <div id="mainContent">
+                    <div id="progressBar"><div></div></div>
+                    <hr>
+                    <form id='nameForm' class="button">
+                        <input autocomplete="off" id='nameField' class="textbox" type='text' maxlength='25' placeholder="FACEIT ID"></input>
+                    </form>
+                    <b id="stats">
+                        <img class="image" id="flag" src="">
+                        <a id="steamlink" class="steam" href="" target="_blank" style="display:none">
+                            <img id="steam">
+                        </a>
+                        <input id="aimKD" class="bigCheckbox" type="checkbox" name="KDToggle">
+                        <p class="faceit" id="faceit" title=""></p>
+                    </b>
+                    <hr>
+                    <button type="submit" class="button" id="query">CHECK ELO</button>
+                </div>
             </center>
         </div>
     </body>
