@@ -163,13 +163,15 @@ function faceit(fName)
 		$('#stats').show();
 		$('#steamlink').show();
 	    $('#steam').show();
+        $('#aimKD').show();
   	})
 
   	.fail(function(){
   		progress(0, $('#progressBar'), 0);
 		$('#faceit').html("User not found");
 		$('#stats').show();
-		$('#steam').hide();
+        $('#steam').hide();
+		$('#aimKD').hide();
 	});
 }
 
