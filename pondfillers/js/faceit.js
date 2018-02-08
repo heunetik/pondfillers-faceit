@@ -1,7 +1,7 @@
 /*
 
 	pondfillers' Faceit stats Chrome Extension
-    Copyright (C) 2017  heunetik
+    Copyright (C) 2018  heunetik
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -227,7 +227,15 @@ function lifetimeStats(un_id,faceit)
             var totalKD = 0;
             var mapCount = 0;
             var re = /de\_/i;
-            Object.entries(jObj.segments[0].segments).forEach(
+            var segments = null;
+
+            if(jObj.segments[0]._id.segmentId == 'csgo_map') {
+                segments = jObj.segments[0].segments;
+            } else {
+                segments = jObj.segments[1].segments;
+            }
+
+            Object.entries(segments).forEach(
                 ([key, value]) => {
                     if(key.match(re)) {
                         mapCount++;
