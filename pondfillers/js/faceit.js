@@ -136,7 +136,7 @@ function faceit(fName)
 		elo = json.payload.games.csgo.faceit_elo;
 		skillLevel = json.payload.games.csgo.skill_level;
 
-		$('#flag').attr("src", 'https://cdn.faceit.com/frontend/335/assets/images/flags/' + cflag + '.png' );
+		$('#flag').attr("src", 'https://cdn-frontend.faceit.com/web/112-1536332382/src/app/assets/images-compress/flags/' + cflag + '.png' );
 		$('#steam').attr("src", 'icons/steam_v2.png' );
 		$("#faceit").attr('title', eloToLevel(elo) + ' elo needed for the next level!');
 
